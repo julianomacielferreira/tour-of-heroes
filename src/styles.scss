@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+$blue: #369;
+$gray: #444;
+$black: #333;
+$font-family-arial: Arial, Helvetica, sans-serif;
+$font-family-cambria: Cambria, Georgia;
+
+h1 {
+  color: $blue;
+  font-family: $font-family-arial;
+  font-size: 250%;
+}
+
+h2,
+h3 {
+  color: $gray;
+  font-family: $font-family-arial;
+  font-weight: lighter;
+}
+
+body {
+  margin: 2em;
+}
+
+body,
+input[type="text"],
+button {
+  color: $black;
+  font-family: $font-family-cambria;
+}
+
+/* Everywhere else */
+* {
+  font-family: $font-family-arial;
+}
