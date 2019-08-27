@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
@@ -10,7 +12,7 @@ export class HeroService {
 
   constructor() { }
 
-  public getHeroes(): Hero[] {
-    return HEROES;
+  public getHeroes(): Observable<Hero[]> {
+    return of(HEROES);
   }
 }
