@@ -41,3 +41,28 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Running with Docker
+
+You must have [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+In the root project folder build the image and fire up the container:
+
+```bash
+$ docker-compose up -d --build
+```
+
+Open your browser to http://localhost:4201 and you should see the app. Try making a change to the AppComponent’s template (src/app/app.component.html) within your code editor. You should see the app hot-reload. 
+
+Ensure the app is running in the browser and test hot-reloading again. Try both the unit and e2e tests as well:
+
+```bash
+$ docker-compose exec tour-of-heroes ng test --watch=false
+$ docker-compose exec tour-of-heroes ng e2e --port 4202
+```
+
+Stop the container before moving on:
+
+```bash
+$ docker-compose stop
+```
