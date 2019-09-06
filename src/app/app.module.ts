@@ -12,7 +12,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MaterialModule } from './material.module';
+import { AngularMaterialModule } from './angular-material.module';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { MaterialModule } from './material.module';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    MaterialModule
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
