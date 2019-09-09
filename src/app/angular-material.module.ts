@@ -12,6 +12,7 @@ import { MatLineModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MaterialModules = [
   MatButtonModule,
@@ -26,7 +27,8 @@ const MaterialModules = [
   MatLineModule,
   MatTooltipModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

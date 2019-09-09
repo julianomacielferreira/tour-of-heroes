@@ -3,6 +3,7 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-heroes',
@@ -17,7 +18,10 @@ export class HeroesComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -27,7 +31,7 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes => {
       this.heroes = heroes;
-      this.dataSource.data = heroes;
+      this.dataSource.data = this.heroes;
     });
   }
 
@@ -41,14 +45,34 @@ export class HeroesComponent implements OnInit {
 
     this.heroService.addHero({ name } as Hero).subscribe(hero => {
       this.heroes.push(hero);
-      this.dataSource.data = this.heroes;
+
+      this.updateDataSource();
+
+      this.showSnackBar(`#${hero.id} - ${hero.name}`, 'Added');
     });
   }
 
   delete(hero: Hero): void {
 
     this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+
+    this.heroService.deleteHero(hero).subscribe(_ => {
+
+      this.updateDataSource();
+
+      this.showSnackBar(`#${hero.id} - ${hero.name}`, 'Removed');
+
+    });
+  }
+
+  private updateDataSource(): void {
     this.dataSource.data = this.heroes;
+  }
+
+  private showSnackBar(info: string, msg: string): void {
+
+    this.snackBar.open(info, msg, {
+      duration: 2000,
+    });
   }
 }
