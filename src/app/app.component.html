@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>{{title}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
 <nav>
-    <a [routerLink]="['/dashboard']" routerLinkActive="active">Dasboard</a>
-    <a [routerLink]="['/heroes']" routerLinkActive="active">Heroes</a>
+    <a [routerLink]="['/dashboard']" routerLinkActive="active" mat-raised-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Dasboard icon">home</mat-icon>
+        Dasboard
+    </a>
+    <a [routerLink]="['/heroes']" routerLinkActive="active" mat-raised-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Heroes icon">people</mat-icon>
+        Heroes
+    </a>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

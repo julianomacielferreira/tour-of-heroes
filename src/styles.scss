@@ -1,15 +1,12 @@
+/* Angular Material Design Theme */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 /* Application-wide Styles */
 $blue: #369;
 $gray: #444;
 $black: #333;
 $font-family-arial: Arial, Helvetica, sans-serif;
 $font-family-cambria: Cambria, Georgia;
-
-h1 {
-  color: $blue;
-  font-family: $font-family-arial;
-  font-size: 250%;
-}
 
 h2,
 h3 {
@@ -55,35 +52,4 @@ button {
   }
 }
 
-/* Navigation link styles. */
-
-nav {
-  a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-right: 10px;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eeeeee;
-    border-radius: 4px;
-
-    &:visited,
-    &:link {
-      color: #607d8b;
-    }
-
-    &:hover {
-      color: #039be5;
-      background-color: #cfd8dc;
-    }
-
-    &.active {
-      color: #039be5;
-    }
-  }
-}
-
 /* Everywhere else */
-* {
-  font-family: $font-family-arial;
-}

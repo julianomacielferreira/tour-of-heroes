@@ -1,7 +1,12 @@
-<div class="search-component">
-    <h4><label for="search-box">Hero Search</label></h4>
+<mat-divider></mat-divider>
 
-    <input type="text" id="search-box" #searchBox (input)="search(searchBox.value)">
+<div class="search-component">
+    <mat-form-field appearance="fill" class="search-form-field-width">
+        <mat-label>Search</mat-label>
+        <input matInput id="search-box" #searchBox (input)="search(searchBox.value)" placeholder="Hero Search">
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-hint>Ex.: type "Bom" or "Dr."</mat-hint>
+    </mat-form-field>
 
     <ul class="search-result">
         <li *ngFor="let hero of heroes$ | async">

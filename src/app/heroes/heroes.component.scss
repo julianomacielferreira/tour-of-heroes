@@ -1,92 +1,28 @@
 /* HeroesComponent's private CSS styles */
-$bg-color: #eee;
-$bg-color-li: #ddd;
-$bg-color-li-selected: #cfd8dc;
-$bg-color-li-selected-hover: #bbd8dc;
-$bg-badge: #405061;
-$li-hover-color: #607d8b;
 
-.heroes {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+h3 {
+  text-align: center;
+}
 
-  li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: $bg-color;
-    margin: 0.5em;
-    padding: 0.3em 0;
-    height: 1.6em;
-    border-radius: 4px;
+a {
+  color: inherit;
 
-    &:hover {
-      color: $li-hover-color;
-      background-color: $bg-color-li;
-      left: 0.1em;
-    }
-
-    &.selected {
-      background-color: $bg-color-li-selected;
-      color: white;
-
-      &:hover {
-        background-color: $bg-color-li-selected-hover;
-        color: white;
-      }
-    }
-  }
-
-  a {
-    color: #333;
-    text-decoration: none;
-    position: relative;
-    display: block;
-    width: 250px;
-
-    &:hover {
-      color: #607d8b;
-    }
-  }
-
-  .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: $bg-badge;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    min-width: 16px;
-    text-align: right;
-    margin-right: 0.8em;
-    border-radius: 4px 0 0 4px;
+  &:visited,
+  &:hover,
+  &:active {
+    color: inherit;
   }
 }
 
-button {
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  font-family: Arial;
+.add-form-field-width {
+  margin: 10px;
+  width: 25%;
+}
 
-  &:hover {
-    background-color: #cfd8dc;
-  }
+table {
+  width: 100%;
+}
 
-  &.delete {
-    position: relative;
-    left: 194px;
-    top: -32px;
-    background-color: gray !important;
-    color: white;
-  }
+th.mat-sort-header-sorted {
+  color: black;
 }

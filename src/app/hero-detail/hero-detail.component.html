@@ -6,6 +6,10 @@
     <div>
         <input type="text" [(ngModel)]="hero.name" placeholder="name">
     </div>
-    <button (click)="goBack()">go back</button>
-    <button (click)="save()">save</button>
+    <button mat-flat-button color="accent" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon> go back
+    </button>
+    <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>check</mat-icon> save
+    </button>
 </div>
