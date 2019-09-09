@@ -3,8 +3,10 @@
     <button (click)="messageService.clear()" mat-raised-button color="warn">
         Clear
     </button>
-    <div *ngFor="let message of messageService.messages">
-        {{message}}
-    </div>
-
+    <mat-list>
+        <mat-list-item *ngFor="let message of messageService.messages">
+            <mat-icon mat-list-icon>info</mat-icon>
+            <h3 class="mat-h3" mat-line>{{message}}</h3>
+        </mat-list-item>
+    </mat-list>
 </div>
