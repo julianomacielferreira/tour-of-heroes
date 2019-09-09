@@ -73,7 +73,7 @@ h3 {
   }
 }
 
-button {
+.btn {
   background-color: #eee;
   border: none;
   padding: 5px 10px;
@@ -93,4 +93,8 @@ button {
     background-color: gray !important;
     color: white;
   }
+}
+
+.add-mat-form-field {
+  margin: 10px;
 }

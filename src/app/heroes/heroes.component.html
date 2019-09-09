@@ -1,18 +1,25 @@
 <h3 class="mat-display-2">My Heroes</h3>
 <div>
-    <label>Hero name:
-        <input #heroName>
-    </label>
+
+    <mat-form-field appearance="fill" class="add-mat-form-field">
+        <mat-label>Add new hero</mat-label>
+        <input matInput #heroName placeholder="Type the name">
+        <mat-hint>Ex.: "Bombasto" or "Dr. Nice"</mat-hint>
+    </mat-form-field>
+
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(heroName.value); heroName.value='';">
-        add
+    <button mat-raised-button color="primary" (click)="add(heroName.value); heroName.value='';">
+       <mat-icon>add_circle</mat-icon> add
     </button>
 </div>
+
+<mat-divider></mat-divider>
+
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
         <a routerLink="/detail/{{hero.id}}">
             <span class="badge">{{hero.id}}</span> {{hero.name}}
         </a>
-        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+        <button class="btn delete" title="delete hero" (click)="delete(hero)">x</button>
     </li>
 </ul>
