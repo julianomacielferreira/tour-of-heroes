@@ -2,10 +2,10 @@
 
 <div *ngIf="messageService.messages.length">
     <button (click)="messageService.clear()" mat-raised-button color="warn">
-            <mat-icon>delete</mat-icon> Clear Messages
+        <mat-icon>delete</mat-icon> Clear Messages
     </button>
     <mat-list>
-        <mat-list-item *ngFor="let message of messageService.messages">
+        <mat-list-item *ngFor="let message of messageService.messages?.reverse()">
             <mat-icon mat-list-icon>info</mat-icon>
             <h3 class="mat-h3" mat-line>{{message}}</h3>
         </mat-list-item>
