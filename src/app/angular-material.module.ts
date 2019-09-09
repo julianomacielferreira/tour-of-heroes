@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatLineModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MaterialModules = [
   MatButtonModule,
@@ -20,7 +21,8 @@ const MaterialModules = [
   MatGridListModule,
   MatDividerModule,
   MatListModule,
-  MatLineModule
+  MatLineModule,
+  MatTooltipModule
 ];
 
 @NgModule({

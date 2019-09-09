@@ -1,6 +1,7 @@
 /* DashboardComponent's private CSS styles. */
-h3 {
+h2 {
   text-align: center;
+  margin: 0 0 34px;
 }
 
 .heroes-card {
@@ -10,6 +11,14 @@ h3 {
 }
 
 .heroes-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-image: url("src/assets/img/placeholder-landscape-med.png");
   background-size: cover;
+}
+
+.heroes-buttons {
+  text-align: center;
+}
+
+button {
+  margin: 10px;
 }

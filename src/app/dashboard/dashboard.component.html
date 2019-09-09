@@ -1,24 +1,32 @@
-<h3 class="mat-display-2">Top Heroes</h3>
+<h2 class="mat-display-2">Top Heroes</h2>
 
 <mat-grid-list cols="4">
     <mat-grid-tile *ngFor="let hero of heroes">
+
         <mat-card class="heroes-card">
             <mat-card-header>
                 <div mat-card-avatar class="heroes-header-image"></div>
                 <mat-card-title>{{hero.name}}</mat-card-title>
                 <mat-card-subtitle>#{{hero.id}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            <img mat-card-lg-image src="assets/img/placeholder-landscape-med.png"
                 alt="Photo of a Shiba Inu">
             <mat-card-content>
                 <p>
                     Description
                 </p>
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-flat-button color="accent" routerLink="/detail/{{hero.id}}">DETAILS</button>
+            <mat-card-actions class="heroes-buttons">
+                <button mat-mini-fab color="primary" matTooltip="Edit {{hero.name}}" routerLink="/detail/{{hero.id}}">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-mini-fab color="warn" matTooltip="Remove {{hero.name}}">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </mat-card-actions>
         </mat-card>
+
     </mat-grid-tile>
 </mat-grid-list>
 
