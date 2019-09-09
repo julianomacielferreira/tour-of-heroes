@@ -1,6 +1,8 @@
+<mat-divider></mat-divider>
+
 <div *ngIf="messageService.messages.length">
     <button (click)="messageService.clear()" mat-raised-button color="warn">
-        Clear Messages
+            <mat-icon>delete</mat-icon> Clear Messages
     </button>
     <mat-list>
         <mat-list-item *ngFor="let message of messageService.messages">
