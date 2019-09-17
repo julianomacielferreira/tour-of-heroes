@@ -58,6 +58,7 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  // TODO: Refactor delegating to a service
   add(name: string): void {
 
     name = name.trim();
@@ -75,6 +76,7 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  // TODO: Refactor delegating to a service
   delete(hero: Hero): void {
 
     this.heroes = this.heroes.filter(h => h !== hero);
@@ -89,7 +91,7 @@ export class HeroesComponent implements OnInit {
   }
 
   private updateDataSource(): void {
-    this.dataSource.data = this.heroes;
+    this.dataSource.data = this.heroes.map(hero => Object.assign({}, hero));
   }
 
   private showSnackBar(info: string, msg: string): void {

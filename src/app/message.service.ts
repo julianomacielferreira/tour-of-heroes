@@ -33,7 +33,7 @@ export class MessageService {
   constructor() { }
 
   addMessage(message: string) {
-    this.messages.push(message);
+    this.messages.unshift(message);
   }
 
   clear() {
