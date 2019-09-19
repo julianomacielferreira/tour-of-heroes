@@ -74,3 +74,7 @@ $ docker-compose stop
 ![](src/assets/screenshots/2.png)
 
 ![](src/assets/screenshots/3.png)
+
+# License
+
+Please see the [license agreement](https://github.com/julianomacielferreira/tour-of-heroes/blob/master/LICENSE).
