@@ -16,12 +16,13 @@ body {
   .main-content {
     padding: 32px;
     box-sizing: border-box;
-    padding-top:80px;
+    padding-top: 80px;
   }
 
   .mat-toolbar {
     position: fixed;
-    
+    z-index: 999;
+
     .mat-icon {
       cursor: pointer;
     }
