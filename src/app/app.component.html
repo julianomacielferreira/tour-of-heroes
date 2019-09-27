@@ -1,17 +1,38 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>{{title}}</span>
-    </mat-toolbar-row>
-</mat-toolbar>
-<nav>
-    <a [routerLink]="['/dashboard']" routerLinkActive="active" mat-raised-button color="primary">
-        <mat-icon aria-hidden="false" aria-label="Dasboard icon">home</mat-icon>
-        Dasboard
-    </a>
-    <a [routerLink]="['/heroes']" routerLinkActive="active" mat-raised-button color="primary">
-        <mat-icon aria-hidden="false" aria-label="Heroes icon">people</mat-icon>
-        Heroes
-    </a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav role="navigation">
+
+        <mat-nav-list>
+            <a *ngFor="let menuItem of menuItems" mat-list-item (click)="sidenav.close()" routerLinkActive
+                #routerLinkActiveInstance="routerLinkActive"
+                [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1" [routerLink]="[menuItem.route]">
+                <mat-icon aria-hidden="false" aria-label="menuItem.name">{{menuItem.icon}}</mat-icon>
+                {{menuItem.name}}
+            </a>
+
+            <hr>
+        </mat-nav-list>
+
+        <button mat-button tabindex="-1" (click)="sidenav.close()">CLOSE</button>
+    </mat-sidenav>
+
+    <main>
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="sidenav.open('mouse')">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div class="main-toolbar">
+                <h1>{{title}}</h1>
+                <div>
+                   <button mat-icon-button [routerLink]="['/']" matTooltip="Profile">
+                        <mat-icon aria-hidden="false" aria-label="Profile icon">account_circle</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-toolbar>
+
+        <div class="main-content mat-app-background">
+            <router-outlet></router-outlet>
+            <app-messages></app-messages>
+        </div>
+    </main>
+</mat-sidenav-container>

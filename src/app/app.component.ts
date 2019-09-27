@@ -21,13 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+
+  menuItems = [
+    { name: 'Dasboard', icon: 'home', route: '/dashboard' },
+    { name: 'Heroes', icon: 'people', route: '/heroes' },
+  ];
 }

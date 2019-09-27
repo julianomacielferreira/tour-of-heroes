@@ -70,10 +70,9 @@ $ docker-compose stop
 # Screenshots
 
 ![](src/assets/screenshots/1.png)
-
 ![](src/assets/screenshots/2.png)
-
 ![](src/assets/screenshots/3.png)
+![](src/assets/screenshots/4.png)
 
 # License
 
