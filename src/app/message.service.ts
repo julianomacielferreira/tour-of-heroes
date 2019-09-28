@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class MessageService {
 
   messages: string[] = [];
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   addMessage(message: string) {
     this.messages.unshift(message);
@@ -38,5 +39,12 @@ export class MessageService {
 
   clear() {
     this.messages = [];
+  }
+
+  showSnackBar(info: string, msg: string): void {
+
+    this.snackBar.open(info, msg, {
+      duration: 2000,
+    });
   }
 }

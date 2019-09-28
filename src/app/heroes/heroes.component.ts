@@ -26,7 +26,7 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -43,7 +43,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private snackBar: MatSnackBar
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -72,7 +72,7 @@ export class HeroesComponent implements OnInit {
 
       this.updateDataSource();
 
-      this.showSnackBar(`#${hero.id} - ${hero.name}`, 'Added');
+      this.messageService.showSnackBar(`#${hero.id} - ${hero.name}`, 'Added');
     });
   }
 
@@ -85,19 +85,12 @@ export class HeroesComponent implements OnInit {
 
       this.updateDataSource();
 
-      this.showSnackBar(`#${hero.id} - ${hero.name}`, 'Removed');
+      this.messageService.showSnackBar(`#${hero.id} - ${hero.name}`, 'Removed');
 
     });
   }
 
   private updateDataSource(): void {
     this.dataSource.data = this.heroes.map(hero => Object.assign({}, hero));
-  }
-
-  private showSnackBar(info: string, msg: string): void {
-
-    this.snackBar.open(info, msg, {
-      duration: 2000,
-    });
   }
 }

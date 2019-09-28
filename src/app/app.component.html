@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav role="navigation">
+    <mat-sidenav #sidenav [fixedInViewport]="true" role="navigation">
 
         <mat-nav-list>
             <a *ngFor="let menuItem of menuItems" mat-list-item (click)="sidenav.close()" routerLinkActive
@@ -21,12 +21,7 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <div class="main-toolbar">
-                <h1>{{title}}</h1>
-                <div>
-                   <button mat-icon-button [routerLink]="['/']" matTooltip="Profile">
-                        <mat-icon aria-hidden="false" aria-label="Profile icon">account_circle</mat-icon>
-                    </button>
-                </div>
+                <h1> {{title}}</h1>
             </div>
         </mat-toolbar>
 
@@ -34,5 +29,6 @@
             <router-outlet></router-outlet>
             <app-messages></app-messages>
         </div>
+
     </main>
 </mat-sidenav-container>
