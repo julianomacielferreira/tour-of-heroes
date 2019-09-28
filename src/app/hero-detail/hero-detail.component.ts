@@ -27,6 +27,7 @@ import { Location } from '@angular/common';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -40,7 +41,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private heroService: HeroService
+    private heroService: HeroService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -57,6 +59,9 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    this.heroService.updateHero(this.hero).subscribe(_ => {
+      this.messageService.showSnackBar(`#${this.hero.id} - ${this.hero.name}`, `Updated`);
+      this.goBack();
+    });
   }
 }
