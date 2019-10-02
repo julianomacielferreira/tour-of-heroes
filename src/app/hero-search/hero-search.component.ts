@@ -22,11 +22,13 @@
  * THE SOFTWARE.
  */
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -36,22 +38,28 @@ import { HeroService } from '../hero.service';
 })
 export class HeroSearchComponent implements OnInit {
 
-  heroes$: Observable<Hero[]>;
-  private searchTerms = new Subject<string>();
+  searchFormControl = new FormControl();
+  filteredHeroes: Observable<Hero[]>;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
-    this.heroes$ = this.searchTerms.pipe(
-      debounceTime(300), // wait 300ms after each keystroke before considering the term
-      distinctUntilChanged(), // ignore new term if same as previous term
-      switchMap((term: string) => this.heroService.searchHeroes(term)) // switch to new search observable each time the term changes
-    );
+    this.filteredHeroes = this.searchFormControl.valueChanges
+      .pipe(
+        debounceTime(300), // wait 300ms after each keystroke before considering the term
+        distinctUntilChanged(), // ignore new term if same as previous term
+        switchMap((term: string) => this.heroService.searchHeroes(term)) // switch to new search observable each time the term changes
+      );
   }
 
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
+  goToHeroDetail(hero: Hero): void {
+
+    const url = `/detail/${hero.id}`;
+
+    this.router.navigateByUrl(url);
   }
 }

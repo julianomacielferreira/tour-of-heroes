@@ -37,6 +37,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MaterialModules = [
   MatButtonModule,
@@ -53,7 +55,9 @@ const MaterialModules = [
   MatTooltipModule,
   MatTableModule,
   MatSortModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatAutocompleteModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({

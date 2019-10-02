@@ -1,18 +1,16 @@
 <mat-divider></mat-divider>
 
 <div class="search-component">
-    <mat-form-field appearance="fill" class="search-form-field-width">
+    <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput id="search-box" #searchBox (input)="search(searchBox.value)" placeholder="Hero Search">
+        <input matInput id="search-box" #searchBox [formControl]="searchFormControl" [matAutocomplete]="auto"
+            placeholder="Hero Search">
         <mat-icon matSuffix>search</mat-icon>
         <mat-hint>Ex.: type "Bom" or "Dr."</mat-hint>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let hero of filteredHeroes | async" [value]="hero.name" (click)="goToHeroDetail(hero)">
+                {{ hero.name }}
+            </mat-option>
+        </mat-autocomplete>
     </mat-form-field>
-
-    <ul class="search-result">
-        <li *ngFor="let hero of heroes$ | async">
-            <a routerLink="/detail/{{hero.id}}">
-                {{hero.name}}
-            </a>
-        </li>
-    </ul>
 </div>
