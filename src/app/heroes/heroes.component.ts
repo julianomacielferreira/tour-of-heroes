@@ -76,7 +76,6 @@ export class HeroesComponent implements OnInit {
     });
   }
 
-  // TODO: Refactor delegating to a service
   delete(hero: Hero): void {
 
     this.heroes = this.heroes.filter(h => h !== hero);
