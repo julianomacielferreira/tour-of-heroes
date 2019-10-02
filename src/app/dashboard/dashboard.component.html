@@ -9,8 +9,7 @@
                 <mat-card-title>{{hero.name}}</mat-card-title>
                 <mat-card-subtitle>#{{hero.id}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-lg-image src="assets/img/placeholder-landscape-med.png"
-                alt="Photo of a Shiba Inu">
+            <img mat-card-lg-image src="assets/img/placeholder-landscape-med.png" alt="Photo of a Shiba Inu">
             <mat-card-content>
                 <p>
                     Description
@@ -21,7 +20,7 @@
                     <mat-icon>edit</mat-icon>
                 </button>
 
-                <button mat-mini-fab color="warn" matTooltip="Remove {{hero.name}}">
+                <button mat-mini-fab color="warn" matTooltip="Remove {{hero.name}}" (click)="delete(hero)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-card-actions>
